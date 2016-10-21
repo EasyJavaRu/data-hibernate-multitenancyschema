@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <!-- a SessionFactory instance listed as /jndi/name -->
+    <session-factory>
+
+        <property name="hibernate.multiTenancy">SCHEMA</property>
+        <property name="hibernate.multi_tenant_connection_provider">ru.easyjava.data.hibernate.multitenancy.MultitenantSchemaProvider</property>
+
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
+
+        <mapping class="ru.easyjava.data.hibernate.entity.AbstractIdentifiableObject"/>
+        <mapping class="ru.easyjava.data.hibernate.entity.Address"/>
+        <mapping class="ru.easyjava.data.hibernate.entity.Company"/>
+        <mapping class="ru.easyjava.data.hibernate.entity.Passport"/>
+        <mapping class="ru.easyjava.data.hibernate.entity.Person"/>
+    </session-factory>
+
+</hibernate-configuration>
